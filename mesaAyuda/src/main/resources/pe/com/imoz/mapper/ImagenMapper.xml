@@ -1,0 +1,49 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.imoz.mapper.ImagenMapper">
+	
+	<resultMap type="pe.com.imoz.entity.Imagen" id="ImagenResult">
+		<id property="idImagen" column="idimagen"/>
+		<result property="descripcion" column="descripcion"/>
+		<result property="imagen" column="imagen"/>
+		<result property="idticket" column="idticket"/>
+		<result property="idinformeticket" column="idinformeticket"/>
+	</resultMap>
+	
+	<select id="listar" resultMap="ImagenResult">
+		SELECT 
+			idimagen,
+		    descripcion,
+		    imagen,
+		    idticket,
+		    idinformeticket
+		FROM imagen;
+	</select>
+	
+	<select id="obtenerPorIdTicket" parameterType="int" resultMap="ImagenResult">
+		SELECT 
+			idimagen,
+		    descripcion,
+		    imagen,
+		    idticket
+		FROM imagen
+		WHERE idticket = #{idTicket};
+	</select>
+	
+	<select id="obtenerPordInforme" parameterType="int" resultMap="ImagenResult">
+		SELECT 
+			idimagen,
+		    descripcion,
+		    imagen,
+		    idticket
+		FROM imagen
+		WHERE idinformeticket = #{idInformeTicket};
+	</select>
+	
+	<insert id="guardar" parameterType="pe.com.imoz.entity.Imagen" 
+		useGeneratedKeys="true" keyProperty="idImagen">
+		INSERT INTO imagen(idimagen, descripcion, imagen, idticket, idinformeticket)
+		VALUES(#{idImagen},#{descripcion}, #{imagen}, #{idTicket}, #{idInformeTicket});	
+	</insert>
+</mapper>

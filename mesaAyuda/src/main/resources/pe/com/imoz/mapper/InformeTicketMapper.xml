@@ -1,0 +1,37 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.imoz.mapper.InformeTicketMapper">
+	
+	<resultMap type="pe.com.imoz.entity.InformeTicket" id="InformeTicketResult">
+		<id property="idInformeTicket" column="idinformeticket"/>
+		<result property="nombre" column="nombre"/>
+		<result property="descripcion" column="descripcion"/>
+		<result property="idticket" column="idticket"/>
+	</resultMap>
+	
+	<select id="listar" resultMap="InformeTicketResult">
+		SELECT 
+			idinformeTicket,
+		    nombre,
+		    descripcion,
+		    idTicket
+		FROM informeticket;
+	</select>
+	
+	<select id="obtenerPorId" parameterType="int" resultMap="InformeTicketResult">
+		SELECT 
+			idinformeTicket,
+		    nombre,
+		    descripcion,
+		    idTicket
+		FROM informeticket
+		WHERE idinformeticket = #{idInformeTicket};
+	</select>
+	
+	<insert id="guardar" parameterType="pe.com.imoz.entity.InformeTicket" 
+		useGeneratedKeys="true" keyProperty="idInformeTicket">
+		INSERT INTO informeticket(idinformeticket, nombre, descripcion, idticket)
+		VALUES(#{idInformeTicket},#{nombre},#{descripcion},#{idticket});	
+	</insert>
+</mapper>

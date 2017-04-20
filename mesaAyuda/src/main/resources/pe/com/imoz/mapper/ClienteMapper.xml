@@ -1,0 +1,54 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.imoz.mapper.ClienteMapper">
+	
+	<resultMap type="pe.com.imoz.entity.Cliente" id="ClienteResult">
+		<id property="idCliente" column="idcliente"/>
+		<result property="nombre" column="nombre"/>
+		<result property="apellido" column="apellido"/>
+		<result property="correo" column="correo"/>
+		<result property="telefono" column="telefono"/>
+		<result property="direccion" column="direccion"/>
+		<result property="usuario" column="usuario"/>
+		<result property="password" column="password"/>
+	</resultMap>
+	
+	<select id="listar" resultMap="ClienteResult">
+		SELECT 
+			idcliente,
+		    nombre,
+		    apellido,
+		    correo,
+		    telefono,
+		    direccion
+		FROM cliente;
+	</select>
+	
+	<select id="obtenerPorNombre" parameterType="String" resultMap="ClienteResult">
+		SELECT 
+			idcliente,
+		    nombre,
+		    apellido,
+		    correo,
+		    telefono,
+		    direccion
+		FROM cliente
+		WHERE nombre = #{nombre};
+	</select>
+	
+	<insert id="guardar" parameterType="pe.com.imoz.entity.Cliente" 
+		useGeneratedKeys="true" keyProperty="idCliente">
+		INSERT INTO cliente(idcliente, nombre, apellido, correo, telefono, direccion)
+		VALUES(#{idCliente},#{nombre},#{apellido},#{correo},#{telefono},#{direccion});	
+	</insert>
+	
+	<update id="actualizar" parameterType="pe.com.imoz.entity.Cliente">
+		UPDATE cliente
+		SET
+			correo = #{correo}
+			telefono = #{telefono}
+			direccion = #{direccion}
+		WHERE codigo = #{idCliente};		
+	</update>
+</mapper>

@@ -1,0 +1,65 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.imoz.mapper.TicketMapper">
+	
+	<resultMap type="pe.com.imoz.entity.Ticket" id="TicketResult">
+		<id property="idTicket" column="idticket"/>
+		<result property="nombre" column="nombre"/>
+		<result property="descripcion" column="descripcion"/>
+		<result property="fechaRegistro" column="fechaRegistro"/>
+		<result property="fechaProgramada" column="fechaProgramada"/>
+		<result property="fechaTerminada" column="fechaTerminada"/>
+		<result property="estado" column="estado"/>
+		<result property="idCliente" column="idcliente"/>
+	</resultMap>
+	
+	<select id="listar" resultMap="TicketResult">
+		SELECT 
+			idTicket,
+		    nombre,
+		    descripcion,
+		    fechaRegistro,
+		    fechaProgramada,
+		    fechaTerminada,
+		    estado,
+		    idCliente
+		FROM ticket;
+	</select>
+	
+	<select id="obtenerPorId" parameterType="int" resultMap="TicketResult">
+		SELECT 
+			idTicket,
+		    nombre,
+		    descripcion,
+		    fechaRegistro,
+		    fechaProgramada,
+		    fechaTerminada,
+		    estado,
+		    idCliente
+		FROM ticket
+		WHERE idticket = #{idTicket};
+	</select>
+	
+	<insert id="guardar" parameterType="pe.com.imoz.entity.Ticket" 
+		useGeneratedKeys="true" keyProperty="idTicket">
+		INSERT INTO ticket(idticket, nombre, descripcion, fechaRegistro, fechaProgramada, estado, idcliente)
+		VALUES(#{idTicket}, #{nombre},#{descripcion},#{fechaRegistro},#{fechaProgramada},#{estado},#{idCliente});	
+	</insert>
+	
+	<update id="actualizarFecha" parameterType="pe.com.imoz.entity.Ticket">
+		UPDATE ticket
+		SET
+			fechaProgramada = #{fechaProgramada} 
+		WHERE idticket = #{idTicket};		
+	</update>
+	
+	<update id="actualizarEstado" parameterType="pe.com.imoz.entity.Ticket">
+		UPDATE ticket
+		SET
+			estado = #{estado} 
+		WHERE idticket = #{idTicket};		
+	</update>
+	
+
+</mapper>

@@ -9,7 +9,7 @@
 	<!-- Developer -->	
 	<bean id="dataSourceMySQLDeveloper" class="org.springframework.jndi.JndiObjectFactoryBean">
 		<property name="jndiName">
-			<value>java:/practicaiiDS</value>
+			<value>java:/sanitariaDS</value>
 		</property>
 	</bean>
 		
