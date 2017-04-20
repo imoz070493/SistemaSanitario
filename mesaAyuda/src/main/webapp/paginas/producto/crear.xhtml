@@ -1,0 +1,67 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<!-- 	<script name="jquery/jquery.js" library="primefaces"></script> -->
+	<title>Index</title>
+</h:head>
+<h:body>
+	<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:p="http://primefaces.org/ui"
+		xmlns:f="http://java.sun.com/jsf/core"
+		template="../../templates/template.xhtml">
+		<ui:define name="metadata">
+
+		</ui:define>
+
+		<ui:define name="content">
+
+			<h1>Nuevo Producto</h1>
+			<h:form id="frmIndex" >
+
+				<p:growl id="mensajes"></p:growl>
+				<p:panelGrid columns="2" >
+
+					<p:outputLabel for="city" value="Basic:" />
+					<p:selectOneMenu id="city" value="#{productoMB.producto.codigo_categoria}"
+						effect="fold" >
+						<f:selectItem itemLabel="Select One" itemValue="" />
+						<f:selectItems value="#{productoMB.lstCategoria}" var="cat" itemLabel="#{cat.nombre}" itemValue="#{cat.idCategoria}"/>
+					</p:selectOneMenu>
+
+					<p:outputLabel value="Id:"></p:outputLabel>
+					<p:inputText value="#{productoMB.producto.codigo}"></p:inputText>
+
+					<p:outputLabel value="Nombre:"></p:outputLabel>
+					<p:inputText value="#{productoMB.producto.nombre}"></p:inputText>
+
+					<p:outputLabel value="Dirección:"></p:outputLabel>
+					<p:inputText value="#{productoMB.producto.precio}"></p:inputText>
+
+				</p:panelGrid>
+
+
+				<p:commandButton value="Registrar" action="#{productoMB.registrar}"
+					update="mensajes" >
+				</p:commandButton>
+
+
+
+			</h:form>
+
+
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+
+</html>
+
+
+
+

@@ -1,0 +1,61 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<!-- 	<script name="jquery/jquery.js" library="primefaces"></script> -->
+	<title>Index</title>
+</h:head>
+<h:body>
+	<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:p="http://primefaces.org/ui"
+		xmlns:f="http://java.sun.com/jsf/core"
+		template="../../templates/template.xhtml">
+		<ui:define name="metadata">
+
+		</ui:define>
+
+		<ui:define name="content">
+
+			<h1>Lista de tiendas</h1>
+			<h:form id="frmProducto">
+
+				<p:growl id="mensajes"></p:growl>
+				
+				<p:commandButton value="Buscar" id="btnBuscar" update="mensajes" 
+				 actionListener="#{productoMB.buscar}" styleClass="ui-priority-primary" />
+
+				<p:dataTable var="varTienda" value="#{productoMB.lstProducto}">
+					<p:column headerText="Id">
+						<h:outputText value="#{varTienda.codigo}" />
+					</p:column>
+
+					<p:column headerText="Nombre">
+						<h:outputText value="#{varTienda.nombre}" />
+					</p:column>
+					<p:column headerText="Precio">
+						<h:outputText value="#{varTienda.precio}" />
+					</p:column>
+					<p:column headerText="Categoria">
+						<h:outputText value="#{varTienda.codigo_categoria}" />
+					</p:column>
+
+				</p:dataTable>
+
+			</h:form>
+
+			
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+
+</html>
+
+
+
+

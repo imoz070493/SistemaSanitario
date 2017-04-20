@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<!-- 	<script name="jquery/jquery.js" library="primefaces"></script> -->
+	<title>Index</title>
+</h:head>
+<h:body>
+	<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:p="http://primefaces.org/ui"
+		xmlns:f="http://java.sun.com/jsf/core"
+		template="../../templates/template.xhtml">
+		<ui:define name="metadata">
+
+		</ui:define>
+
+		<ui:define name="content">
+
+			<h1>Nueva Categoria</h1>
+			<h:form id="frmIndex">
+				
+				<p:growl id="mensajes"></p:growl>
+				<p:panelGrid columns="2">
+					
+					<p:outputLabel value="ID:"></p:outputLabel>
+					<p:inputText value="#{categoriaMB.categoria.idCategoria}"></p:inputText>
+					
+					<p:outputLabel value="Nombre:"></p:outputLabel>
+					<p:inputText value="#{categoriaMB.categoria.nombre}"></p:inputText>
+					
+				</p:panelGrid>
+								
+				
+				<p:commandButton value="Guardar" action="#{categoriaMB.update}"  
+						update="mensajes"> 
+				</p:commandButton>
+				
+				
+
+			</h:form>
+
+			
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+
+</html>
+
+
+
+

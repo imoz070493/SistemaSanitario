@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<!-- 	<script name="jquery/jquery.js" library="primefaces"></script> -->
+	<title>Index</title>
+	<script src="http://maps.google.com/maps/api/js?sensor=true|false"
+type="text/javascript"></script>
+</h:head>
+<h:body>
+
+	
+	
+	<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:p="http://primefaces.org/ui"
+		xmlns:f="http://java.sun.com/jsf/core"
+		template="templates/template.xhtml">
+		<ui:define name="metadata">
+
+		</ui:define>
+<p:gmap center="41.381542, 2.122893" zoom="15" type="HYBRID" style="width:100%;height:400px" />
+		<ui:define name="content">
+			
+			<h1>Developer con primefaces + mybatis + spring</h1>
+
+			
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+
+</html>

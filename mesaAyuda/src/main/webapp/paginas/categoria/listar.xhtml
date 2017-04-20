@@ -1,0 +1,61 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<!-- 	<script name="jquery/jquery.js" library="primefaces"></script> -->
+	<title>Index</title>
+</h:head>
+<h:body>
+	<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:p="http://primefaces.org/ui"
+		xmlns:f="http://java.sun.com/jsf/core"
+		template="../../templates/template.xhtml">
+		<ui:define name="metadata">
+
+		</ui:define>
+
+		<ui:define name="content">
+
+			<h1>Lista de categorias</h1>
+			<h:form id="frmCategorias">
+
+				<p:growl id="mensajes"></p:growl>
+				
+				<p:commandButton value="Buscar" id="btnBuscar" update="mensajes" 
+				 actionListener="#{categoriaMB.buscar}" styleClass="ui-priority-primary" />
+
+				<p:dataTable var="varCategoria" value="#{categoriaMB.lstCategoria}">
+					<p:column headerText="Id">
+						<h:outputText value="#{varCategoria.idCategoria}" />
+					</p:column>
+
+					<p:column headerText="Nombre">
+						<h:outputText value="#{varCategoria.nombre}" />
+					</p:column>
+					<p:column headerText="">
+						<p:commandButton value="Actualizar" actionListener="#{categoriaMB.actualizar(varCategoria)}"></p:commandButton>
+					</p:column>
+					<p:column headerText="">
+						<p:commandButton value="Eliminar" actionListener="#{categoriaMB.eliminar(varCategoria)}"></p:commandButton>
+					</p:column>
+
+				</p:dataTable>
+
+			</h:form>
+
+			
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+
+</html>
+
+
+
+
