@@ -49,17 +49,17 @@ public class ClienteService implements Serializable{
 		return lstCliente;
 	}
 	
-	public Cliente ObtenerPorNombre(String nombre){
-		Cliente cliente =null;
+	public List<Cliente> obtenerPorNombre(String nombre){
+		List<Cliente> lstCliente =null;
 		
 		try{
-			cliente = this.clienteMapper.obtenerPorNombre(nombre);
-			LOG.info(""+cliente);
+			lstCliente = this.clienteMapper.obtenerPorNombre(nombre);
+			LOG.info("Clientes: "+lstCliente.size());
 		}catch(Exception e){
 			LOG.error(e.getMessage());
-			cliente = new Cliente();
+			lstCliente = new ArrayList<>();
 		}
-		return cliente;
+		return lstCliente;
 	}
 
 	public boolean guardar(Cliente cliente) {

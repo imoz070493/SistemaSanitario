@@ -20,40 +20,41 @@
 
 		<ui:define name="content">
 
-			<h1>Nuevo Producto</h1>
-			<h:form id="frmIndex" >
-
+			<h1>Nuevo Informe de Ticket</h1>
+			<h:form id="frmIndex">
+				
 				<p:growl id="mensajes"></p:growl>
-				<p:panelGrid columns="2" >
-
-					<p:outputLabel for="city" value="Basic:" />
-					<p:selectOneMenu id="city" value="#{productoMB.producto.codigo_categoria}"
-						effect="fold" >
+				<p:panelGrid columns="2">
+					
+					<p:outputLabel for="city" value="Ticket:" />
+					<p:selectOneMenu id="city" value="#{informeTicketMB.informeTicket.idTicket}"
+						effect="fold">
 						<f:selectItem itemLabel="Select One" itemValue="" />
-						<f:selectItems value="#{productoMB.lstCategoria}" var="cat" itemLabel="#{cat.nombre}" itemValue="#{cat.idCategoria}"/>
+						<f:selectItems value="#{ticketMB.lstTicket}" var="tic"
+							itemLabel="#{tic.nombre}" itemValue="#{tic.idTicket}" />
 					</p:selectOneMenu>
-
-					<p:outputLabel value="Id:"></p:outputLabel>
-					<p:inputText value="#{productoMB.producto.codigo}"></p:inputText>
-
+					
+					<p:outputLabel value="ID:"></p:outputLabel>
+					<p:inputText value="#{informeTicketMB.informeTicket.idInformeTicket}"></p:inputText>
+					
 					<p:outputLabel value="Nombre:"></p:outputLabel>
-					<p:inputText value="#{productoMB.producto.nombre}"></p:inputText>
-
-					<p:outputLabel value="Dirección:"></p:outputLabel>
-					<p:inputText value="#{productoMB.producto.precio}"></p:inputText>
-
+					<p:inputText value="#{informeTicketMB.informeTicket.nombre}"></p:inputText>
+					
+					<p:outputLabel value="Descripcion:"></p:outputLabel>
+					<p:inputText value="#{informeTicketMB.informeTicket.descripcion}"></p:inputText>
+					
 				</p:panelGrid>
-
-
-				<p:commandButton value="Registrar" action="#{productoMB.registrar}"
-					update="mensajes" >
+								
+				
+				<p:commandButton value="Registrar" action="#{informeTicketMB.guardar}"  
+						update="mensajes"> 
 				</p:commandButton>
-
-
+				
+				
 
 			</h:form>
 
-
+			
 
 		</ui:define>
 	</ui:composition>

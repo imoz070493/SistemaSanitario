@@ -12,24 +12,31 @@
 		<p:outputPanel id="menuPanel" layout="block">
 				<p:menu autoSubmenuDisplay="true" style="width:213px;height:483px;border:none;font-size:small;padding:0px;"
 					ajax="false" type="sliding" backLabel="Atras">
-					<p:submenu label="Categoria" icon="ui-icon ui-icon-refresh">
-						<p:menuitem value="Buscar"
-							url="/paginas/categoria/listar.xhtml" />
+					<p:submenu label="Cliente" icon="ui-icon ui-icon-refresh">
+						<p:menuitem value="Listar"
+							url="/paginas/cliente/listar.xhtml" />
 						<p:menuitem value="Crear" 
-							url="/paginas/categoria/crear.xhtml" />
+							url="/paginas/cliente/crear.xhtml" />
 					</p:submenu>
-					<p:submenu label="More Pages" icon="ui-icon ui-icon-refresh">
-						<p:menuitem value="Page 3"
-							url="/paginas/page3.xhtml" />
-						<p:menuitem value="Page 4" 
-							url="/paginas/page4.xhtml" />
+					<p:submenu label="Ticket" icon="ui-icon ui-icon-refresh">
+						<p:menuitem value="Listar"
+							url="/paginas/ticket/listar.xhtml" />
+						<p:menuitem value="Crear" 
+							url="/paginas/ticket/crear.xhtml" />
 					</p:submenu>
 					
-					<p:submenu label="Producto" icon="ui-icon ui-icon-refresh">
-						<p:menuitem value="Buscar"
-							url="/paginas/producto/listar.xhtml" />
+					<p:submenu label="Informe Ticket" icon="ui-icon ui-icon-refresh">
+						<p:menuitem value="Listar"
+							url="/paginas/informeTicket/listar.xhtml" />
 						<p:menuitem value="Crear" 
-							url="/paginas/producto/crear.xhtml"/>
+							url="/paginas/informeTicket/crear.xhtml"/>
+					</p:submenu>
+					
+					<p:submenu label="Imagen" icon="ui-icon ui-icon-refresh">
+						<p:menuitem value="Listar"
+							url="/paginas/imagen/listar.xhtml" />
+						<p:menuitem value="Crear" 
+							url="/paginas/imagen/crear.xhtml"/>
 					</p:submenu>
 		
 				</p:menu>

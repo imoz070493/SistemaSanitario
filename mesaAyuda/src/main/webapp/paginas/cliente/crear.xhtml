@@ -20,22 +20,34 @@
 
 		<ui:define name="content">
 
-			<h1>Nueva Categoria</h1>
+			<h1>Nuevo Cliente</h1>
 			<h:form id="frmIndex">
 				
 				<p:growl id="mensajes"></p:growl>
 				<p:panelGrid columns="2">
 					
 					<p:outputLabel value="ID:"></p:outputLabel>
-					<p:inputText value="#{categoriaMB.categoria.idCategoria}"></p:inputText>
+					<p:inputText value="#{clienteMB.cliente.idCliente}"></p:inputText>
 					
 					<p:outputLabel value="Nombre:"></p:outputLabel>
-					<p:inputText value="#{categoriaMB.categoria.nombre}"></p:inputText>
+					<p:inputText value="#{clienteMB.cliente.nombre}"></p:inputText>
+					
+					<p:outputLabel value="Apellido:"></p:outputLabel>
+					<p:inputText value="#{clienteMB.cliente.apellido}"></p:inputText>
+					
+					<p:outputLabel value="Correo:"></p:outputLabel>
+					<p:inputText value="#{clienteMB.cliente.correo}"></p:inputText>
+					
+					<p:outputLabel value="Telefono:"></p:outputLabel>
+					<p:inputText value="#{clienteMB.cliente.telefono}"></p:inputText>
+					
+					<p:outputLabel value="Direccion:"></p:outputLabel>
+					<p:inputText value="#{clienteMB.cliente.direccion}"></p:inputText>
 					
 				</p:panelGrid>
 								
 				
-				<p:commandButton value="Registrar" action="#{categoriaMB.registrar}"  
+				<p:commandButton value="Registrar" action="#{clienteMB.guardar}"  
 						update="mensajes"> 
 				</p:commandButton>
 				

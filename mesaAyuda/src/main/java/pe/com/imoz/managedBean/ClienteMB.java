@@ -46,6 +46,13 @@ public class ClienteMB implements Serializable {
 		agregarMensaje("Se encontraron " + lstCliente.size() + " clientes.");
 	}
 	
+	public void buscarPorNombre(ActionEvent actionEvent) {
+
+		lstCliente = this.clienteService.obtenerPorNombre(cliente.getNombre());
+		agregarMensaje("Se encontraron " + lstCliente.size() + " clientes.");
+		System.err.println("");
+	}
+	
 	public void guardar() {
 
 		try {

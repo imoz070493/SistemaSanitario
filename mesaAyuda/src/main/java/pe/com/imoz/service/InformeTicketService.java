@@ -47,15 +47,15 @@ public class InformeTicketService implements Serializable{
 		return lstInformeTicket;
 	}
 	
-	public InformeTicket obtenerPorId(int id){
-		InformeTicket informeTicket =null;
+	public List<InformeTicket> obtenerPorId(int id){
+		List<InformeTicket> informeTicket =null;
 		
 		try{
 			informeTicket = this.informeTicketMapper.obtenerPorId(id);
 			LOG.info("InformeTickets: "+informeTicket);
 		}catch(Exception e){
 			LOG.error(e.getMessage());
-			informeTicket = new InformeTicket();
+			informeTicket = new ArrayList<>();
 		}
 		return informeTicket;
 	}

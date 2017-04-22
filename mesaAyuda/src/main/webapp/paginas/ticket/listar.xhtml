@@ -1,0 +1,81 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<!-- 	<script name="jquery/jquery.js" library="primefaces"></script> -->
+	<title>Index</title>
+</h:head>
+<h:body>
+	<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:p="http://primefaces.org/ui"
+		xmlns:f="http://java.sun.com/jsf/core"
+		template="../../templates/template.xhtml">
+		<ui:define name="metadata">
+
+		</ui:define>
+
+		<ui:define name="content">
+
+			<h1>Lista de Tickets</h1>
+			<h:form id="frmTicket">
+
+				<p:growl id="mensajes"></p:growl>
+				
+				<p:commandButton value="Buscar" id="btnBuscar" update="mensajes" 
+				 actionListener="#{ticketMB.buscar}" styleClass="ui-priority-primary" />
+
+				<p:dataTable var="varTicket" value="#{ticketMB.lstTicket}">
+					<p:column headerText="Id">
+						<h:outputText value="#{varTicket.idTicket}" />
+					</p:column>
+
+					<p:column headerText="Nombre">
+						<h:outputText value="#{varTicket.nombre}" />
+					</p:column>
+					<p:column headerText="Descripcion">
+						<h:outputText value="#{varTicket.descripcion}" />
+					</p:column>
+					<p:column headerText="Fecha Registro">
+						<h:outputText value="#{varTicket.fechaRegistro}" />
+					</p:column>
+					<p:column headerText="Fecha Programada">
+						<h:outputText value="#{varTicket.fechaProgramada}" />
+					</p:column>
+					<p:column headerText="Fecha Terminada">
+						<h:outputText value="#{varTicket.fechaTerminada}" />
+					</p:column>
+					<p:column headerText="Estado">
+						<h:outputText value="#{varTicket.estado}" />
+					</p:column>
+					<p:column headerText="Cliente">
+						<h:outputText value="#{varTicket.idCliente}" />
+					</p:column>
+					<p:column headerText="">
+						<p:commandButton value="Ver" actionListener="#{ticketMB.verDetalle(varTicket)}"></p:commandButton>
+					</p:column>
+					<p:column headerText="">
+						<p:commandButton value="Posponer" actionListener="#{ticketMB.actualizarFechaP(varTicket)}"></p:commandButton>
+					</p:column>
+					<p:column headerText="">
+						<p:commandButton value="Cerrar" actionListener="#{ticketMB.cerrarTicket(varTicket)}"></p:commandButton>
+					</p:column>					
+				</p:dataTable>
+
+			</h:form>
+
+			
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+
+</html>
+
+
+
+

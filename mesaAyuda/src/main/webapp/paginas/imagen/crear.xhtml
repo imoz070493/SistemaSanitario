@@ -1,0 +1,76 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<!-- 	<script name="jquery/jquery.js" library="primefaces"></script> -->
+	<title>Index</title>
+</h:head>
+<h:body>
+	<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:p="http://primefaces.org/ui"
+		xmlns:f="http://java.sun.com/jsf/core"
+		template="../../templates/template.xhtml">
+		<ui:define name="metadata">
+
+		</ui:define>
+
+		<ui:define name="content">
+
+			<h1>Nuevo Imagen</h1>
+			<h:form id="frmIndex">
+				
+				<p:growl id="mensajes"></p:growl>
+				<p:panelGrid columns="2">
+					
+					<p:outputLabel for="city" value="Ticket:" />
+					<p:selectOneMenu id="city" value="#{imagenMB.imagen.idTicket}"
+						effect="fold">
+						<f:selectItem itemLabel="Select One" itemValue="" />
+						<f:selectItems value="#{ticketMB.lstTicket}" var="tic"
+							itemLabel="#{tic.nombre}" itemValue="#{tic.idTicket}" />
+					</p:selectOneMenu>
+					
+					<p:outputLabel for="city1" value="Informe Ticket:" />
+					<p:selectOneMenu id="city1" value="#{imagenMB.imagen.idInformeTicket}"
+						effect="fold">
+						<f:selectItem itemLabel="Select One" itemValue="" />
+						<f:selectItems value="#{informeTicketMB.lstInformeTicket}" var="infoTic"
+							itemLabel="#{infoTic.nombre}" itemValue="#{infoTic.idInformeTicket}" />
+					</p:selectOneMenu>
+					
+					<p:outputLabel value="ID:"></p:outputLabel>
+					<p:inputText value="#{imagenMB.imagen.idImagen}"></p:inputText>
+					
+					<p:outputLabel value="Descripcion:"></p:outputLabel>
+					<p:inputText value="#{imagenMB.imagen.descripcion}"></p:inputText>
+					
+					<!--  <p:outputLabel value="Imagen:"></p:outputLabel>
+					<p:fileUpload  label="Seleccionar" value="#{imagenMB.fileImagen}" mode="simple" skinSimple="true"/>
+					-->
+				</p:panelGrid>
+								
+				
+				<p:commandButton value="Registrar" action="#{imagenMB.guardar}"  
+						update="mensajes"> 
+				</p:commandButton>
+				
+				
+
+			</h:form>
+
+			
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+
+</html>
+
+
+
+

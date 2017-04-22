@@ -6,6 +6,7 @@ public class InformeTicket {
 	private String nombre;
 	private String descripcion;
 	private int idTicket;
+	
 	public int getIdInformeTicket() {
 		return idInformeTicket;
 	}

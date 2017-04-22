@@ -71,10 +71,10 @@ public class TicketService implements Serializable{
 		return respuesta;
 	}
 	
-	public boolean actualizarFecha(Ticket ticket) {
+	public boolean actualizarFechaProgramada(Ticket ticket) {
 		boolean respuesta = false;
 		try {
-			this.ticketMapper.actualizarFecha(ticket);
+			this.ticketMapper.actualizarFechaProgramada(ticket);
 			respuesta = true;
 		} catch (Exception e) {
 			LOG.error(e.getMessage());

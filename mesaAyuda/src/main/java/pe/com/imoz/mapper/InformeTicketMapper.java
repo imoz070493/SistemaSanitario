@@ -8,7 +8,7 @@ public interface InformeTicketMapper {
 	
 	public List<InformeTicket> listar();
 	
-	public InformeTicket obtenerPorId(int idInformeTicket);
+	public List<InformeTicket> obtenerPorId(int idInformeTicket);
 	
 	public void guardar(InformeTicket ticket);
 

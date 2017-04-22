@@ -79,7 +79,7 @@ public class ImagenService implements Serializable{
 			this.imagenMapper.guardar(imagen);
 			respuesta = true;
 		} catch (Exception e) {
-			LOG.error(e.getMessage());
+			LOG.error("Error al guardar imagen"+e.getMessage());
 		}
 		return respuesta;
 	}

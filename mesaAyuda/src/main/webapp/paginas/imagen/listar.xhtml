@@ -20,34 +20,42 @@
 
 		<ui:define name="content">
 
-			<h1>Lista de categorias</h1>
-			<h:form id="frmCategorias">
+			<h1>Lista de Informes</h1>
+			<h:form id="frmInformeTickets">
 
 				<p:growl id="mensajes"></p:growl>
-				
-				<p:commandButton value="Buscar" id="btnBuscar" update="mensajes" 
-				 actionListener="#{categoriaMB.buscar}" styleClass="ui-priority-primary" />
 
-				<p:dataTable var="varCategoria" value="#{categoriaMB.lstCategoria}">
+				<p:commandButton value="Buscar" id="btnBuscar" update="mensajes"
+					actionListener="#{informeTicketMB.buscar}"
+					styleClass="ui-priority-primary" />
+
+				<h:outputText value="ID: " />
+				<h:inputText value="#{informeTicketMB.informeTicket.idInformeTicket}" />
+				<p:commandButton value="Buscar Por Id" id="btnBuscarId"
+					update="mensajes" actionListener="#{informeTicketMB.buscarPorId}"
+					styleClass="ui-priority-primary" />
+
+				<p:dataTable var="varInformeTicket"
+					value="#{informeTicketMB.lstInformeTicket}">
 					<p:column headerText="Id">
-						<h:outputText value="#{varCategoria.idCategoria}" />
+						<h:outputText value="#{varInformeTicket.idInformeTicket}" />
 					</p:column>
 
 					<p:column headerText="Nombre">
-						<h:outputText value="#{varCategoria.nombre}" />
+						<h:outputText value="#{varInformeTicket.nombre}" />
 					</p:column>
-					<p:column headerText="">
-						<p:commandButton value="Actualizar" actionListener="#{categoriaMB.actualizar(varCategoria)}"></p:commandButton>
+					<p:column headerText="Descripcion">
+						<h:outputText value="#{varInformeTicket.descripcion}" />
 					</p:column>
-					<p:column headerText="">
-						<p:commandButton value="Eliminar" actionListener="#{categoriaMB.eliminar(varCategoria)}"></p:commandButton>
+					<p:column headerText="Ticket">
+						<h:outputText value="#{varInformeTicket.idTicket}" />
 					</p:column>
 
 				</p:dataTable>
 
 			</h:form>
 
-			
+
 
 		</ui:define>
 	</ui:composition>

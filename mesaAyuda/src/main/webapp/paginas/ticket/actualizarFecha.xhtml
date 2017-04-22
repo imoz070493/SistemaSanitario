@@ -20,34 +20,27 @@
 
 		<ui:define name="content">
 
-			<h1>Lista de tiendas</h1>
-			<h:form id="frmTiendas">
+			<h1>Nuevo Ticket</h1>
+			<h:form id="frmIndex">
 
 				<p:growl id="mensajes"></p:growl>
-				
-				<p:commandButton value="Buscar" id="btnBuscar" update="mensajes" 
-				 actionListener="#{productoMB.buscar}" styleClass="ui-priority-primary" />
+				<p:panelGrid columns="2">
 
-				<p:dataTable var="varTienda" value="#{productoMB.lstProducto}">
-					<p:column headerText="Id">
-						<h:outputText value="#{varTienda.codigo}" />
-					</p:column>
+					<p:outputLabel for="popup2" value="Fecha Programada:" />
+					<p:calendar id="popup2" value="#{ticketMB.ticket.fechaProgramada}" />
 
-					<p:column headerText="Year">
-						<h:outputText value="#{varTienda.nombre}" />
-					</p:column>
-					<p:column headerText="Year">
-						<h:outputText value="#{varTienda.precio}" />
-					</p:column>
-					<p:column headerText="Year">
-						<h:outputText value="#{varTienda.codigo_categoria}" />
-					</p:column>
+				</p:panelGrid>
 
-				</p:dataTable>
+
+				<p:commandButton value="Guardar" action="#{ticketMB.updateFecha}"
+					update="mensajes">
+				</p:commandButton>
+
+
 
 			</h:form>
 
-			
+
 
 		</ui:define>
 	</ui:composition>

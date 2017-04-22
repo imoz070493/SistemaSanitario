@@ -47,7 +47,7 @@
 		VALUES(#{idTicket}, #{nombre},#{descripcion},#{fechaRegistro},#{fechaProgramada},#{estado},#{idCliente});	
 	</insert>
 	
-	<update id="actualizarFecha" parameterType="pe.com.imoz.entity.Ticket">
+	<update id="actualizarFechaProgramada" parameterType="pe.com.imoz.entity.Ticket">
 		UPDATE ticket
 		SET
 			fechaProgramada = #{fechaProgramada} 

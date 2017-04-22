@@ -7,8 +7,8 @@
 		<id property="idImagen" column="idimagen"/>
 		<result property="descripcion" column="descripcion"/>
 		<result property="imagen" column="imagen"/>
-		<result property="idticket" column="idticket"/>
-		<result property="idinformeticket" column="idinformeticket"/>
+		<result property="idTicket" column="idticket"/>
+		<result property="idInformeTicket" column="idinformeticket"/>
 	</resultMap>
 	
 	<select id="listar" resultMap="ImagenResult">

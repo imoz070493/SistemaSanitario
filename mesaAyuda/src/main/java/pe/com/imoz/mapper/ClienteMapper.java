@@ -8,7 +8,7 @@ public interface ClienteMapper {
 	
 	public List<Cliente> listar();
 	
-	public Cliente obtenerPorNombre(String nombre);
+	public List<Cliente> obtenerPorNombre(String nombre);
 	
 	public void guardar(Cliente cliente);
 	

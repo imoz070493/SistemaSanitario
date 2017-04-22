@@ -1,0 +1,72 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<!-- 	<script name="jquery/jquery.js" library="primefaces"></script> -->
+	<title>Index</title>
+</h:head>
+<h:body>
+	<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:p="http://primefaces.org/ui"
+		xmlns:f="http://java.sun.com/jsf/core"
+		template="../../templates/template.xhtml">
+		<ui:define name="metadata">
+
+		</ui:define>
+
+		<ui:define name="content">
+
+			<h1>
+				Ticket N°
+				<h:outputLabel value="#{ticketMB.ticket.idTicket}" />
+			</h1>
+			<h:form id="frmTicket">
+
+				<p:growl id="mensajes"></p:growl>
+
+				
+				<p:panelGrid columns="2">
+
+					<p:outputLabel value="Cliente" />
+					<p:outputLabel value="#{ticketMB.ticket.idCliente}" />
+
+					<p:outputLabel value="Id:"></p:outputLabel>
+					<p:outputLabel value="#{ticketMB.ticket.idTicket}" />
+
+					<p:outputLabel value="Nombre:"></p:outputLabel>
+					<p:outputLabel value="#{ticketMB.ticket.nombre}" />
+
+					<p:outputLabel value="Descripcion:"></p:outputLabel>
+					<p:outputLabel value="#{ticketMB.ticket.descripcion}" />
+
+					<p:outputLabel value="Fecha Registro:" />
+					<p:outputLabel value="#{ticketMB.ticket.fechaRegistro}" />
+
+					<p:outputLabel value="Fecha Programada:" />
+					<p:outputLabel value="#{ticketMB.ticket.fechaProgramada}" />
+
+					<p:outputLabel value="Fecha Terminada:" />
+					<p:outputLabel value="#{ticketMB.ticket.fechaTerminada}" />
+
+					<p:outputLabel value="Estado:"></p:outputLabel>
+					<p:outputLabel value="#{ticketMB.ticket.estado}" />
+				</p:panelGrid>
+
+			</h:form>
+
+
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+
+</html>
+
+
+
+

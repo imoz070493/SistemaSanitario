@@ -12,7 +12,7 @@ public interface TicketMapper {
 	
 	public void guardar(Ticket ticket);
 	
-	public void actualizarFecha(Ticket ticket);
+	public void actualizarFechaProgramada(Ticket ticket);
 	
 	public void actualizarEstado(Ticket ticket);	
 	

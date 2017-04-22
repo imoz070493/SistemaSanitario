@@ -7,15 +7,15 @@
 		<id property="idInformeTicket" column="idinformeticket"/>
 		<result property="nombre" column="nombre"/>
 		<result property="descripcion" column="descripcion"/>
-		<result property="idticket" column="idticket"/>
+		<result property="idTicket" column="idticket"/>
 	</resultMap>
 	
 	<select id="listar" resultMap="InformeTicketResult">
 		SELECT 
-			idinformeTicket,
+			idinformeticket,
 		    nombre,
 		    descripcion,
-		    idTicket
+		    idticket
 		FROM informeticket;
 	</select>
 	
@@ -32,6 +32,6 @@
 	<insert id="guardar" parameterType="pe.com.imoz.entity.InformeTicket" 
 		useGeneratedKeys="true" keyProperty="idInformeTicket">
 		INSERT INTO informeticket(idinformeticket, nombre, descripcion, idticket)
-		VALUES(#{idInformeTicket},#{nombre},#{descripcion},#{idticket});	
+		VALUES(#{idInformeTicket},#{nombre},#{descripcion},#{idTicket});	
 	</insert>
 </mapper>

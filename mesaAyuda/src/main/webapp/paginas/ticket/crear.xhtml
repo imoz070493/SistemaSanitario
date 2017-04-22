@@ -1,0 +1,79 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<!-- 	<script name="jquery/jquery.js" library="primefaces"></script> -->
+	<title>Index</title>
+</h:head>
+<h:body>
+	<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:p="http://primefaces.org/ui"
+		xmlns:f="http://java.sun.com/jsf/core"
+		template="../../templates/template.xhtml">
+		<ui:define name="metadata">
+
+		</ui:define>
+
+		<ui:define name="content">
+
+			<h1>Nuevo Ticket</h1>
+			<h:form id="frmIndex">
+
+				<p:growl id="mensajes"></p:growl>
+				<p:panelGrid columns="2">
+
+					<p:outputLabel for="city" value="Basic:" />
+					<p:selectOneMenu id="city" value="#{ticketMB.ticket.idCliente}"
+						effect="fold">
+						<f:selectItem itemLabel="Select One" itemValue="" />
+						<f:selectItems value="#{clienteMB.lstCliente}" var="cli"
+							itemLabel="#{cli.nombre}" itemValue="#{cli.idCliente}" />
+					</p:selectOneMenu>
+
+					<p:outputLabel value="Id:"></p:outputLabel>
+					<p:inputText value="#{ticketMB.ticket.idTicket}"></p:inputText>
+
+					<p:outputLabel value="Nombre:"></p:outputLabel>
+					<p:inputText value="#{ticketMB.ticket.nombre}"></p:inputText>
+
+					<p:outputLabel value="Descripcion:"></p:outputLabel>
+					<p:inputText value="#{ticketMB.ticket.descripcion}"></p:inputText>
+
+					<p:outputLabel for="popup1" value="Fecha Registro:" />
+					<p:calendar id="popup1" value="#{ticketMB.ticket.fechaRegistro}" />
+
+					<p:outputLabel for="popup2" value="Fecha Programada:" />
+					<p:calendar id="popup2" value="#{ticketMB.ticket.fechaProgramada}" />
+
+					<p:outputLabel for="popup3" value="Fecha Terminada:" />
+					<p:calendar id="popup3" value="#{ticketMB.ticket.fechaTerminada}" />
+					
+					<p:outputLabel value="Estado:"></p:outputLabel>
+					<p:inputText value="#{ticketMB.ticket.estado}"></p:inputText>
+				</p:panelGrid>
+
+
+				<p:commandButton value="Registrar" action="#{ticketMB.guardar}"
+					update="mensajes">
+				</p:commandButton>
+
+
+
+			</h:form>
+
+
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+
+</html>
+
+
+
+

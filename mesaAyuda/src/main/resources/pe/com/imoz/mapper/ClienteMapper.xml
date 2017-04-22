@@ -25,7 +25,7 @@
 		FROM cliente;
 	</select>
 	
-	<select id="obtenerPorNombre" parameterType="String" resultMap="ClienteResult">
+	<select id="obtenerPorNombre" parameterType="string" resultMap="ClienteResult">
 		SELECT 
 			idcliente,
 		    nombre,
@@ -46,9 +46,9 @@
 	<update id="actualizar" parameterType="pe.com.imoz.entity.Cliente">
 		UPDATE cliente
 		SET
-			correo = #{correo}
-			telefono = #{telefono}
+			correo = #{correo},
+			telefono = #{telefono},
 			direccion = #{direccion}
-		WHERE codigo = #{idCliente};		
+		WHERE idcliente = #{idCliente};		
 	</update>
 </mapper>
